@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
+import { PostsService } from '../services/posts.service';
+import { Post } from '../models/post';
 
 @Component({
   selector: 'app-posts',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private postsService: PostsService) { }
+  postList:Post[]=[];
   ngOnInit(): void {
+    this.postsService.getPosts().subscribe(res=>{
+      console.log(res)
+      this.postList = res;
+    },
+    (err)=>alert('catch error inside component'+err.message)
+    )
   }
 
 }

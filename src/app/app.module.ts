@@ -7,17 +7,21 @@ import { FooterComponent } from './templates/footer/footer.component';
 
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidenavComponent,
     FooterComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserAnimationsModule,
     AngularMaterialModule,
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

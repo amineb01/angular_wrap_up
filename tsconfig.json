@@ -12,6 +12,15 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+    "compilerOptions": {
+        "baseUrl": "src",
+        "paths": {
+          "@models/*": ["models/*"],
+          "@services/*": ["services/*"]
+        },
+      }
     }
-]
+  ]
 }

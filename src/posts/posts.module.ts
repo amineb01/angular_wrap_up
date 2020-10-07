@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PostsComponent } from './posts.component';
 import { PostsRoutingModule } from './posts-routing.module';
-
+import { AngularMaterialModule } from '../angular-material/angular-material.module';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import { PostsRoutingModule } from './posts-routing.module';
   ],
   imports: [
     CommonModule,
-    PostsRoutingModule
+    PostsRoutingModule,
+    AngularMaterialModule
   ]
 })
 export class PostsModule { }

@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PostsService } from './posts.service';
 import { AppInterceptorService } from './app-interceptor.service';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { PostsService } from './posts.service';
+import { ImagesService } from './images.service';
 
 
 @NgModule({
@@ -11,6 +13,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
   ],
   providers: [ 
     PostsService,
+    ImagesService,
     {provide: HTTP_INTERCEPTORS, useClass: AppInterceptorService, multi:true}
   ],
   imports: [

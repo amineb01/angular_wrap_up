@@ -26,7 +26,7 @@ export class ImagesDataSource implements DataSource<Image> {
 
         this.loadingSubject.next(true);
 
-        this.coursesService.getImages(pageIndex , pageSize ).pipe(
+        this.coursesService.getImages(pageIndex , pageSize = 5).pipe(
             finalize(() => this.loadingSubject.next(false))
         )
         .subscribe(images => this.imagesSubject.next(images));

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ImagesComponent } from './images/images.component';
+import { ReactiveFormComponent } from './reactive-form.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ImagesComponent
+    component: ReactiveFormComponent
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class ImagesRoutingModule { }
+export class ReactiveFormRoutingModule { }

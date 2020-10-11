@@ -29,7 +29,7 @@ export class PostsComponent implements OnInit {
 
   ngAfterViewInit() {
 
-      // server-side search
+      // server-side search by creating an obsevable witch emit input content
       fromEvent(this.input.nativeElement,'keyup')
           .pipe(
               debounceTime(150),

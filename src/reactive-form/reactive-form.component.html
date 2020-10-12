@@ -71,7 +71,7 @@
         <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
       </div>
     </div>
-    <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
-    <button type="submit" class="btn btn-primary" [disabled]='registerForm.invalid'>Sign in</button>
+    <button-component [type]="'button'" [classes]="'btn-secondary'" (clicked)="onReset($event)" >Cancel</button-component>
+    <button-component [type]="'submit'" [classes]="'btn-primary'" (clicked)="onReset($event)" [isdisabled]='registerForm.invalid' >Sign in</button-component>
   </form>
   

@@ -41,7 +41,7 @@ export class ReactiveFormComponent implements OnInit {
         alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
     }
 
-    onReset() {
+    onReset(e) {
         this.submitted = false;
         this.registerForm.reset();
     }

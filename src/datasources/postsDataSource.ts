@@ -1,8 +1,8 @@
 import {CollectionViewer, DataSource} from "@angular/cdk/collections";
-import { Post } from '../models/post';
+import { Post } from '../app/models/post';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { PostsService } from '../services/posts.service';
+import { PostsService } from '../app/services/posts.service';
 
 export class PostsDataSource implements DataSource<Post> {
 

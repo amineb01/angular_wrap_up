@@ -1,8 +1,8 @@
 import {CollectionViewer, DataSource} from "@angular/cdk/collections";
-import { Image } from '../models/image';
+import { Image } from '../app/models/image';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { ImagesService } from '../services/images.service';
+import { ImagesService } from '../app/services/images.service';
 
 export class ImagesDataSource implements DataSource<Image> {
 

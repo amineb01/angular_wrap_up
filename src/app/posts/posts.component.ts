@@ -1,6 +1,6 @@
 import { Component, ComponentFactoryResolver, OnInit, ViewChild, ElementRef,  } from '@angular/core';
 import { PostsService } from '../services/posts.service';
-import { PostsDataSource } from '../datasources/postsDataSource';
+import { PostsDataSource } from '../../datasources/postsDataSource';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 

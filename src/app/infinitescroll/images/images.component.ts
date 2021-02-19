@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImagesService } from '../../services/images.service';
-import { ImagesDataSource } from '../../datasources/imagesDataSource';
+import { ImagesDataSource } from '../../../datasources/imagesDataSource';
 import { Image } from '../../models/image';
 
 @Component({

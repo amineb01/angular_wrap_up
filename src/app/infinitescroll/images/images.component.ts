@@ -22,7 +22,7 @@ export class ImagesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataSource = new ImagesDataSource(this.imagesService);
+    this.dataSource = new ImagesDataSource( this.imagesService)  ;
     this.dataSource.loadImages( this.pageNumber, this.pageSize );
     this.dataSource.connect().subscribe(res=>this.imagesList= this.imagesList.concat(res))
   }

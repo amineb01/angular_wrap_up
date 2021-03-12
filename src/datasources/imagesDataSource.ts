@@ -11,7 +11,7 @@ export class ImagesDataSource implements DataSource<Image> {
 
     public loading$ = this.loadingSubject.asObservable();
 
-    constructor(private coursesService: ImagesService) {}
+    constructor(public imagesServices: ImagesService) {}
 
     connect(): Observable<Image[]> {
         return this.imagesSubject.asObservable();
@@ -26,7 +26,7 @@ export class ImagesDataSource implements DataSource<Image> {
 
         this.loadingSubject.next(true);
 
-        this.coursesService.getImages(pageIndex , pageSize = 5).pipe(
+        this.imagesServices.getImages(pageIndex , pageSize = 5).pipe(
             finalize(() => this.loadingSubject.next(false))
         )
         .subscribe(images => this.imagesSubject.next(images));

@@ -11,7 +11,7 @@ export class PostsDataSource implements DataSource<Post> {
 
     public loading$ = this.loadingSubject.asObservable();
 
-    constructor(private coursesService: PostsService) {}
+    constructor(private postsServices: PostsService) {}
 
     connect(collectionViewer: CollectionViewer): Observable<Post[]> {
         return this.postsSubject.asObservable();
@@ -27,7 +27,7 @@ export class PostsDataSource implements DataSource<Post> {
 
         this.loadingSubject.next(true);
 
-        this.coursesService.getPosts(filter, sortActive, sortDirection,
+        this.postsServices.getPosts(filter, sortActive, sortDirection,
             pageIndex, pageSize).pipe(
             finalize(() => this.loadingSubject.next(false))
         )

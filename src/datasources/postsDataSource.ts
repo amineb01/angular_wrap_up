@@ -1,4 +1,4 @@
-import {CollectionViewer, DataSource} from "@angular/cdk/collections";
+import {CollectionViewer, DataSource} from '@angular/cdk/collections';
 import { Post } from '../app/models/post';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
@@ -22,8 +22,8 @@ export class PostsDataSource implements DataSource<Post> {
         this.loadingSubject.complete();
     }
 
-    loadPosts(filter = '',sortActive = 'asc',
-                sortDirection = 'asc', pageIndex = 0, pageSize = 5) {
+    loadPosts(filter = '', sortActive = 'asc',
+              sortDirection = 'asc', pageIndex = 0, pageSize = 5): any {
 
         this.loadingSubject.next(true);
 
@@ -32,5 +32,5 @@ export class PostsDataSource implements DataSource<Post> {
             finalize(() => this.loadingSubject.next(false))
         )
         .subscribe(posts => this.postsSubject.next(posts));
-    }    
+    }
 }

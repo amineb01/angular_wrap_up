@@ -12,15 +12,15 @@ export class AppInterceptorService implements HttpInterceptor {
   constructor() { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
     const header = new HttpHeaders({
-      'Authorisation': 'token'
-    })
-    let clone = req.clone({
+      Authorisation: 'token'
+    });
+    const clone = req.clone({
       headers: header
     });
-    return next.handle(clone).pipe( catchError(this.handleError) )
+    return next.handle(clone).pipe( catchError(this.handleError) );
   }
 
-  handleError(err: HttpErrorResponse){
+  handleError(err: HttpErrorResponse): Observable<never>{
     console.log('in catchError', err);
     return throwError(err);
   }

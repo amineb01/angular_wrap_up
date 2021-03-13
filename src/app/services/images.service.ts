@@ -10,7 +10,7 @@ export class ImagesService {
 
   constructor(private http: HttpClient) { }
 
-  getImages( pageNumber = 0, pageSize = 5 ):  Observable<Image[]> {
+  getImages( pageNumber = 0, pageSize = 5 ): Observable<Image[]> {
     return this.http.get<Image[]>('https://jsonplaceholder.typicode.com/photos', {
       params: new HttpParams()
       .set('_start', (pageSize * pageNumber).toString())

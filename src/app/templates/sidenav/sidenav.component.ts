@@ -8,25 +8,26 @@ import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 })
 export class SidenavComponent implements OnDestroy {
 
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addEventListener('change', this.mobileQueryListener);
+  }
+
 
   mobileQuery: MediaQueryList;
 
-  fillerNav = ['home','posts'];
+  fillerNav = ['home', 'posts'];
 
 
 
-  private _mobileQueryListener: () => void;
+  private mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
-  }
+  shouldRun = true;
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
-  }
+    this.mobileQuery.removeEventListener('change', this.mobileQueryListener);
 
-  shouldRun =true;
+  }
 
 }

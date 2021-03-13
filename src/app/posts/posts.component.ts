@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, OnInit, ViewChild, ElementRef,  } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit, ViewChild, ElementRef, AfterViewInit,  } from '@angular/core';
 import { PostsService } from '../services/posts.service';
 import { PostsDataSource } from '../../datasources/postsDataSource';
 import { MatSort } from '@angular/material/sort';
@@ -12,25 +12,25 @@ import { merge, fromEvent } from 'rxjs';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.sass']
 })
-export class PostsComponent implements OnInit {
+export class PostsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild('input') input: ElementRef;
 
   dataSource: PostsDataSource;
-  displayedColumns= ["userId", "id",  "title", "body"];
+  displayedColumns = ['userId', 'id',  'title', 'body'];
 
   constructor( private postsService: PostsService) {}
 
-  ngOnInit() {
+  ngOnInit(): any  {
       this.dataSource = new PostsDataSource(this.postsService);
       this.dataSource.loadPosts( '', 'title', 'asc', 0, 5);
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): any  {
 
       // server-side search by creating an obsevable witch emit input content
-      fromEvent(this.input.nativeElement,'keyup')
+      fromEvent(this.input.nativeElement, 'keyup')
           .pipe(
               debounceTime(150),
               distinctUntilChanged(),
@@ -52,7 +52,7 @@ export class PostsComponent implements OnInit {
       .subscribe();
   }
 
-  loadLessonsPage() {
+  loadLessonsPage(): any  {
       this.dataSource.loadPosts(
           this.input.nativeElement.value,
           this.sort.active,

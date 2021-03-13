@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { MustMatch } from './mustmatch';
 
 @Component({
@@ -9,7 +9,7 @@ import { MustMatch } from './mustmatch';
 })
 export class ReactiveFormComponent implements OnInit {
   registerForm: FormGroup;
-  submitted:boolean = false;
+  submitted = false;
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class ReactiveFormComponent implements OnInit {
       state: ['', [Validators.required, Validators.minLength(6)]],
       zip: ['', [Validators.required, Validators.minLength(3)]],
       acceptTerms: [false, Validators.requiredTrue]
-  }, 
+  },
   {
       validator: MustMatch('password', 'confirmation')
   }
@@ -31,8 +31,8 @@ export class ReactiveFormComponent implements OnInit {
 
 
     // convenience getter for easy access to form fields
-    get f() { return this.registerForm.controls; }
-    onSubmit() {
+    get f(): any  { return this.registerForm.controls; }
+    onSubmit(): void  {
         this.submitted = true;
         // stop here if form is invalid
         if (this.registerForm.invalid) {
@@ -41,7 +41,7 @@ export class ReactiveFormComponent implements OnInit {
         alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
     }
 
-    onReset(e) {
+    onReset(e): void  {
         this.submitted = false;
         this.registerForm.reset();
     }

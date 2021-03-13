@@ -1,4 +1,4 @@
-import {CollectionViewer, DataSource} from "@angular/cdk/collections";
+import {CollectionViewer, DataSource} from '@angular/cdk/collections';
 import { Image } from '../app/models/image';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
@@ -22,7 +22,7 @@ export class ImagesDataSource implements DataSource<Image> {
         this.loadingSubject.complete();
     }
 
-    loadImages(pageIndex = 0, pageSize = 5) {
+    loadImages(pageIndex = 0, pageSize = 5): any {
 
         this.loadingSubject.next(true);
 
@@ -30,5 +30,5 @@ export class ImagesDataSource implements DataSource<Image> {
             finalize(() => this.loadingSubject.next(false))
         )
         .subscribe(images => this.imagesSubject.next(images));
-    }    
+    }
 }

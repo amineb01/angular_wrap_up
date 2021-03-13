@@ -11,10 +11,10 @@ import { ImagesService } from './images.service';
 @NgModule({
   declarations: [
   ],
-  providers: [ 
+  providers: [
     PostsService,
     ImagesService,
-    {provide: HTTP_INTERCEPTORS, useClass: AppInterceptorService, multi:true}
+    {provide: HTTP_INTERCEPTORS, useClass: AppInterceptorService, multi: true}
   ],
   imports: [
     HttpClientModule,

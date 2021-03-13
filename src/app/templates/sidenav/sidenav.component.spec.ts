@@ -14,18 +14,18 @@ describe('SidenavComponent', () => {
       declarations: [ SidenavComponent ],
       imports: [
         RouterTestingModule.withRoutes([
-            {path: 'home', component: HomeCmp}, 
+            {path: 'home', component: HomeCmp},
             {path: 'posts', component: PostsCmp},
-            {path: 'infinitescroll', component: InfinitescrollCmp}, 
-            {path: 'reactiveform', component: ReactiveformCmp}, 
-          ]),      
-      ]    
+            {path: 'infinitescroll', component: InfinitescrollCmp},
+            {path: 'reactiveform', component: ReactiveformCmp},
+          ]),
+      ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    router = TestBed.inject(Router)
+    router = TestBed.inject(Router);
     fixture = TestBed.createComponent(SidenavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -42,39 +42,39 @@ describe('SidenavComponent', () => {
 
   it('should navigate to / when click home button', () => {
     const compiled = fixture.nativeElement;
-    let span = compiled.querySelector('.side-toolbar span:nth-child(1n) ')
-    span.click()
+    const span = compiled.querySelector('.side-toolbar span:nth-child(1n) ');
+    span.click();
     fixture.detectChanges();
-    fixture.whenStable().then(res=>{
-      expect(router.location.path()).toBe('/')
-    })
+    fixture.whenStable().then(res => {
+      expect(router.location.path()).toBe('/');
+    });
   });
 
   it('should navigate to /posts when click posts button', () => {
     const compiled = fixture.nativeElement;
-    let span = compiled.querySelector('.side-toolbar span:nth-child(3n) ')
-    span.click()
+    const span = compiled.querySelector('.side-toolbar span:nth-child(3n) ');
+    span.click();
     fixture.detectChanges();
-    fixture.whenStable().then(res=>{
-      expect(router.location.path()).toBe('/posts')
-    })
+    fixture.whenStable().then(res => {
+      expect(router.location.path()).toBe('/posts');
+    });
   });
 
   it('should navigate to /infinitescroll when click posts button', () => {
     const compiled = fixture.nativeElement;
-    let span = compiled.querySelector('.side-toolbar span:nth-child(4n) ')
-    span.click()
+    const span = compiled.querySelector('.side-toolbar span:nth-child(4n) ');
+    span.click();
     fixture.detectChanges();
-    fixture.whenStable().then(res=>{
-      expect(router.location.path()).toBe('/infinitescroll')
-    })
+    fixture.whenStable().then(res => {
+      expect(router.location.path()).toBe('/infinitescroll');
+    });
   });
 
   it('should have more than 4 routes to navigate', () => {
     const compiled = fixture.nativeElement;
-    let spans = compiled.querySelectorAll('.side-toolbar span ')
+    const spans = compiled.querySelectorAll('.side-toolbar span ');
 
-    expect(spans.length).toBeGreaterThan(4)
+    expect(spans.length).toBeGreaterThan(4);
 
   });
 

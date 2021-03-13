@@ -13,32 +13,28 @@ export class ImagesComponent implements OnInit {
   throttle = 300;
   scrollDistance = 1;
   scrollUpDistance = 2;
-  selector: string = '.main-panel';
+  selector = '.main-panel';
   pageNumber = 0;
   pageSize = 100;
   dataSource: ImagesDataSource;
-  imagesList:Image[]=[];
+  imagesList: Image[] = [];
   constructor( private imagesService: ImagesService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): any {
     this.dataSource = new ImagesDataSource( this.imagesService)  ;
     this.dataSource.loadImages( this.pageNumber, this.pageSize );
-    this.dataSource.connect().subscribe(res=>this.imagesList= this.imagesList.concat(res))
+    this.dataSource.connect().subscribe(res => this.imagesList = this.imagesList.concat(res));
   }
-  
-  getImages(startIndex, endIndex, _method) {
-    this.imagesService.getImages( this.pageNumber, this.pageSize );
-  }
-  
-  
-  onScrollDown () {
+
+
+  onScrollDown(): any {
     this.pageNumber ++ ;
     this.dataSource.loadImages( this.pageNumber, this.pageSize );
   }
-  
-  onScrollUp(ev) {
+
+  onScrollUp(ev): any {
     console.log('scrolled up!', ev);
   }
- 
+
 }

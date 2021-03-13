@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { Observable, Subscriber } from 'rxjs';
 import { Post } from '../models/post';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('PostsComponent', () => {
   let component: PostsComponent;
@@ -14,9 +14,9 @@ describe('PostsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [   CommonModule,AngularMaterialModule, BrowserAnimationsModule],
+      imports: [   CommonModule, AngularMaterialModule, BrowserAnimationsModule],
       declarations: [ PostsComponent ],
-      providers:[{provide: PostsService, useClass:PostsServiceStub}]
+      providers: [{provide: PostsService, useClass: PostsServiceStub}]
     })
     .compileComponents();
   }));
@@ -31,7 +31,7 @@ describe('PostsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-   it('should render h1 tag', () => {
+  it('should render h1 tag', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Angular material');
   });
